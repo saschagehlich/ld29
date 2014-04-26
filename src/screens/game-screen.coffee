@@ -1,14 +1,16 @@
 define [
   "ldfw",
   "stages/game-stage",
+  "stages/game-ui-stage",
   "game-state"
-], (LDFW, GameStage, GameState) ->
+], (LDFW, GameStage, GameUIStage, GameState) ->
   class GameScreen extends LDFW.Screen
     constructor: ->
       super
 
       @gameState = new GameState @game
       @gameStage = new GameStage @game, @gameState
+      @gameUIStage = new GameUIStage @game, @gameState
 
     ###
      * Update positions etc.
@@ -17,6 +19,7 @@ define [
     update: (delta) ->
       @gameState.update delta
       @gameStage.update delta
+      @gameUIStage.update delta
       return
 
     ###
@@ -28,4 +31,5 @@ define [
       context.fillRect 0, 0, context.canvas.width, context.canvas.height
 
       @gameStage.draw context
+      @gameUIStage.draw context
       return

@@ -10,7 +10,10 @@ define [
       # Preload assets
       @preloader = new LDFW.Preloader this, [
         "assets/sprites.json",
-        "assets/sprites.png"
+        "assets/sprites.png",
+        "assets/fonts.json",
+        "assets/fonts.png",
+        "assets/fonts/pixel-8-white.fnt"
       ]
       @preloader.on "done", @_onPreloaded
       @preloader.load()
@@ -37,6 +40,11 @@ define [
       spritesImage = @preloader.get "assets/sprites.png"
 
       @spritesAtlas = new LDFW.TextureAtlas spritesJSON.frames, spritesImage
+
+      fontsJSON = @preloader.get "assets/fonts.json"
+      fontsImage = @preloader.get "assets/fonts.png"
+
+      @fontsAtlas = new LDFW.TextureAtlas fontsJSON.frames, fontsImage
 
       @screen = new GameScreen this
       @run()

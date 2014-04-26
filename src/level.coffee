@@ -2,6 +2,8 @@ define ["ldfw", "entities/platform"], (LDFW, Platform) ->
   class Level
     floorHeight: 40
     scrollPosition: 0
+    initialDepth: -1500
+    depthPerPixel: 2 / 30
     constructor: (@game, @gameState) ->
       @gravity = new LDFW.Vector2(0, -4000)
       @boundaries =

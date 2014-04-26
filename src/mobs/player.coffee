@@ -4,6 +4,7 @@ define ["ldfw"], (LDFW) ->
     onGround: true
     constructor: (@game, @gameState) ->
       {@level} = @gameState
+      @depth = @level.initialDepth
       @keyboard = new LDFW.Keyboard
 
       @position = new LDFW.Vector2 @game.getWidth() / 2, @level.floorHeight
@@ -13,6 +14,7 @@ define ["ldfw"], (LDFW) ->
 
     update: (delta) ->
       @_handleKeyboardInput()
+      @_calculateDepth()
 
       minY = @_findMinimumYForPosition @position
 
@@ -35,6 +37,10 @@ define ["ldfw"], (LDFW) ->
       @onGround = @position.y is minY
       if @onGround
         @velocity.y = 0
+
+    _calculateDepth: ->
+      pixelsTravelled = @position.y - @level.floorHeight
+      @depth = Math.round(@level.initialDepth + pixelsTravelled * @level.depthPerPixel)
 
     _findMinimumYForPosition: (position) ->
       minY = @level.floorHeight

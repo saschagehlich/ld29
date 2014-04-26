@@ -45,6 +45,21 @@ module.exports = (grunt) ->
               file: "build/assets/tiles.json"
               format: "json"
 
+      fonts:
+        src: ["assets/fonts"]
+        options:
+          disableRotation: true
+          padding: 0
+          trimMode: "None"
+
+          output:
+            sheet:
+              file: "build/assets/fonts.png"
+              format: "png"
+            data:
+              file: "build/assets/fonts.json"
+              format: "json"
+
     connect:
       site:
         options:
@@ -61,6 +76,9 @@ module.exports = (grunt) ->
       tiles:
         files: ["assets/tiles/**/*"]
         tasks: ["texturepacker:tiles"]
+      fonts:
+        files: ["assets/fonts/**/*"]
+        tasks: ["texturepacker:fonts"]
 
   grunt.loadNpmTasks "grunt-contrib-coffee"
   grunt.loadNpmTasks "grunt-contrib-watch"
@@ -68,4 +86,4 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-texturepacker"
   grunt.loadNpmTasks "grunt-newer"
 
-  grunt.registerTask "default", ["coffee", "texturepacker:sprites", "texturepacker:tiles", "connect", "watch"]
+  grunt.registerTask "default", ["coffee", "texturepacker:sprites", "texturepacker:tiles", "texturepacker:fonts", "connect", "watch"]
