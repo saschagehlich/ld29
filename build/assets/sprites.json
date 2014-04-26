@@ -48,6 +48,14 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":1280,"h":64},
 	"sourceSize": {"w":1280,"h":64}
 },
+"world/platform-edge.png":
+{
+	"frame": {"x":2,"y":2004,"w":4,"h":16},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":16},
+	"sourceSize": {"w":4,"h":16}
+},
 "world/wall.png":
 {
 	"frame": {"x":2,"y":2,"w":120,"h":1440},
@@ -63,6 +71,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "2",
-	"smartupdate": "$TexturePacker:SmartUpdate:6ada1189a926bf2db759373c39b076ab:7e33acc5624e8e206e89f74bbec27e62:1eabdf11f75e3a4fe3147baf7b5be24b$"
+	"smartupdate": "$TexturePacker:SmartUpdate:a6d5d2bf35e03e7a765a47d22afada78:1de4ac2a14e7f420d40467d1dc15eb26:1eabdf11f75e3a4fe3147baf7b5be24b$"
 }
 }

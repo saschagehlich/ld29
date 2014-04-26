@@ -9,9 +9,9 @@ define ["ldfw", "entities/platform"], (LDFW, Platform) ->
         max: new LDFW.Vector2(@game.getWidth() - 50, 0)
 
       @platforms = [
-        new Platform(420, 160, 50),
-        new Platform(250, 250, 50),
-        new Platform(420, 320, 50),
+        new Platform(420, 160, 100),
+        new Platform(250, 250, 100),
+        new Platform(420, 320, 100),
       ]
 
     update: (delta) ->
