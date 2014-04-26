@@ -23,6 +23,7 @@ define [
     ###
     update: (delta) ->
       super
+      TWEEN.update()
 
     ###
      * Gets called as soon as the preloader

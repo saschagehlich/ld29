@@ -1,6 +1,6 @@
 define ["ldfw"], (LDFW) ->
   class Player
-    jumpForce: 800
+    jumpForce: 1200
     onGround: true
     constructor: (@game, @gameState) ->
       {@level} = @gameState
@@ -9,9 +9,12 @@ define ["ldfw"], (LDFW) ->
       @position = new LDFW.Vector2 @game.getWidth() / 2, @level.floorHeight
       @velocity = new LDFW.Vector2(0, 0)
       @speed = new LDFW.Vector2(5, 0)
+      @hitBox = new LDFW.Vector2(20, 30)
 
     update: (delta) ->
       @_handleKeyboardInput()
+
+      minY = @_findMinimumYForPosition @position
 
       # Handle velocity / movement
       @position.x += @velocity.x
@@ -28,8 +31,20 @@ define ["ldfw"], (LDFW) ->
 
       @position.add(velocityStep)
 
-      @position.y = Math.max(@level.floorHeight, @position.y)
-      @onGround = @position.y is @level.floorHeight
+      @position.y = Math.max(minY, @position.y)
+      @onGround = @position.y is minY
+      if @onGround
+        @velocity.y = 0
+
+    _findMinimumYForPosition: (position) ->
+      minY = @level.floorHeight
+      for platform in @level.platforms
+        unless @position.x + @hitBox.x < platform.x or
+          @position.x > platform.x + platform.width or
+          @position.y < platform.y
+            minY = Math.max(minY, platform.y)
+
+      return minY
 
     _handleKeyboardInput: ->
       moveLeft = @keyboard.pressed @keyboard.Keys.LEFT

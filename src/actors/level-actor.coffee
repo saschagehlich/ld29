@@ -11,6 +11,22 @@ define [
       @wallSprite = @spritesAtlas.createSprite "world/wall.png"
       @floorSprite = @spritesAtlas.createSprite "world/floor.png"
 
+    draw: (context) ->
+      super
+
+      @_drawPlatforms context
+
+    _drawPlatforms: (context) ->
+      {platforms} = @level
+
+      for platform in platforms
+        {x, y} = platform
+
+        y = @level.scrollPosition + @game.getHeight() - y
+
+        context.fillStyle = "red"
+        context.fillRect x, y, platform.width, platform.height
+
     drawFloor: (context) ->
       yPosition = @level.scrollPosition + @game.getHeight() - @floorSprite.getHeight()
       if yPosition < @game.getHeight()
