@@ -40,7 +40,7 @@ define [
       {items} = @level
       for item in items
         {actor} = item
-        actor.draw context, item.position.x, item.position.y
+        actor.draw context
 
     drawFloor: (context) ->
       yPosition = @level.scrollPosition + @game.getHeight() - @floorSprite.getHeight()

@@ -19,6 +19,13 @@ define [
       @feetSprites =
         idle: @spritesAtlas.createSprite "player/feet-idle.png"
 
+    update: ->
+      super
+
+      if item = @player.activeItem
+        item.position.set @player.position
+        item.position.y += 12
+
     draw: (context) ->
       sprite = @idleSprite
 
@@ -36,5 +43,18 @@ define [
 
       bodySprite.draw(context, x, y + 16, mirroredX)
       headSprite.draw(context, x, y, mirroredX)
-      handsSprite.draw(context, x, y + 22, mirroredX)
       feetSprite.draw(context, x, y + 26, mirroredX)
+
+      # Render the item the player is holding
+      if item = @player.activeItem
+        {actor} = item
+        itemX = x
+        itemY = y + 18
+        if mirroredX
+          itemX -= 10
+        actor.draw context,
+          itemX,
+          itemY,
+          mirroredX
+
+      handsSprite.draw(context, x, y + 22, mirroredX)

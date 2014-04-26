@@ -34,7 +34,7 @@
 },
 "player/feet-idle.png":
 {
-	"frame": {"x":30,"y":2008,"w":20,"h":4},
+	"frame": {"x":32,"y":2038,"w":20,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":20,"h":4},
@@ -42,7 +42,7 @@
 },
 "player/hands-idle.png":
 {
-	"frame": {"x":2,"y":2040,"w":20,"h":4},
+	"frame": {"x":10,"y":2040,"w":20,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":20,"h":4},
@@ -74,7 +74,7 @@
 },
 "ui/sidebar/player.png":
 {
-	"frame": {"x":30,"y":1996,"w":10,"h":10},
+	"frame": {"x":24,"y":2026,"w":10,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":10,"h":10},
@@ -87,6 +87,22 @@
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":22,"h":22},
 	"sourceSize": {"w":22,"h":22}
+},
+"weapons/machinegun-projectile-rotated.png":
+{
+	"frame": {"x":2,"y":2040,"w":6,"h":6},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":6,"h":6},
+	"sourceSize": {"w":6,"h":6}
+},
+"weapons/machinegun-projectile.png":
+{
+	"frame": {"x":32,"y":2044,"w":6,"h":2},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":6,"h":2},
+	"sourceSize": {"w":6,"h":2}
 },
 "weapons/machinegun-rotated.png":
 {
@@ -135,6 +151,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "2",
-	"smartupdate": "$TexturePacker:SmartUpdate:57f1d8827e0c7edc3f506b118fa11751:713501807ed2b897ebed2c1e741f081b:1eabdf11f75e3a4fe3147baf7b5be24b$"
+	"smartupdate": "$TexturePacker:SmartUpdate:ac2b3ca4e3f3a6e9287d039c0e729a13:93caf00a485eeb4cf04988315a2f3511:1eabdf11f75e3a4fe3147baf7b5be24b$"
 }
 }

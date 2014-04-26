@@ -10,14 +10,21 @@ define [
       {@spritesAtlas} = @game
 
       @weaponSprite = @spritesAtlas.createSprite "weapons/#{spriteName}.png"
+      @weaponSpriteUp = @spritesAtlas.createSprite "weapons/#{spriteName}-rotated.png"
 
-    draw: (context) ->
-      {x, y} = @weapon.position
-      y += @hoverOffset
+    draw: (context, x, y, mirroredX=false) ->
+      weaponSprite = @weaponSprite
+      if @weapon.player?.lookDirection is -1
+        weaponSprite = @weaponSpriteUp
 
-      {level} = @gameState
-      y = @game.getHeight() + level.scrollPosition - y
-      @weaponSprite.draw context, x, y
+      unless x? and y?
+        {x, y} = @weapon.position
+        y += @hoverOffset
+
+        {level} = @gameState
+        y = @game.getHeight() + level.scrollPosition - y
+
+      weaponSprite.draw context, x, y, mirroredX
 
     update: (delta) ->
       @hoverOffset = Math.sin(@sumDelta * 2) * 3

@@ -41,6 +41,10 @@ define ["ldfw"], (LDFW) ->
       if @onGround
         @velocity.y = 0
 
+      # Item usage / weapon shooting
+      if @usingItem and @activeItem?
+        @activeItem.use delta
+
     _calculateDepth: ->
       pixelsTravelled = @position.y - @level.floorHeight
       @depth = Math.round(@level.initialDepth + pixelsTravelled * @level.depthPerPixel)
@@ -60,7 +64,13 @@ define ["ldfw"], (LDFW) ->
       moveRight = @keyboard.pressed @keyboard.Keys.RIGHT
       lookUp = @keyboard.pressed @keyboard.Keys.UP
       lookDown = @keyboard.pressed @keyboard.Keys.DOWN
+      use = @keyboard.pressed @keyboard.Keys.SPACE
       jump = @keyboard.pressed @keyboard.Keys.C
+
+      if use
+        @usingItem = true
+      else
+        @usingItem = false
 
       if lookUp
         @lookDirection = -1
@@ -89,7 +99,9 @@ define ["ldfw"], (LDFW) ->
 
       console.log "got this already" if hasItem
 
+      item.setPlayer this
       @items.push item
+      @activeItem ?= item
 
     getRect: ->
       {level} = @gameState
