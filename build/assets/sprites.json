@@ -40,6 +40,30 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":640,"h":34},
 	"sourceSize": {"w":640,"h":34}
 },
+"ui/sidebar/arrow.png":
+{
+	"frame": {"x":8,"y":2028,"w":12,"h":10},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":12,"h":10},
+	"sourceSize": {"w":12,"h":10}
+},
+"ui/sidebar/player.png":
+{
+	"frame": {"x":22,"y":2028,"w":10,"h":10},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":10,"h":10},
+	"sourceSize": {"w":10,"h":10}
+},
+"ui/sidebar/sun.png":
+{
+	"frame": {"x":2,"y":2004,"w":22,"h":22},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":22,"h":22},
+	"sourceSize": {"w":22,"h":22}
+},
 "world/floor.png":
 {
 	"frame": {"x":2,"y":1870,"w":1280,"h":64},
@@ -50,7 +74,7 @@
 },
 "world/platform-edge.png":
 {
-	"frame": {"x":2,"y":2004,"w":4,"h":16},
+	"frame": {"x":2,"y":2028,"w":4,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":16},
@@ -71,6 +95,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "2",
-	"smartupdate": "$TexturePacker:SmartUpdate:a6d5d2bf35e03e7a765a47d22afada78:1de4ac2a14e7f420d40467d1dc15eb26:1eabdf11f75e3a4fe3147baf7b5be24b$"
+	"smartupdate": "$TexturePacker:SmartUpdate:dcd4eb5e8d821851bd71dde37481d8f4:739d57122fd5e1e259a317f018dfe29b:1eabdf11f75e3a4fe3147baf7b5be24b$"
 }
 }
