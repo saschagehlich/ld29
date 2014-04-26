@@ -1,25 +1,21 @@
-define (require, exports, module) ->
-  ###
-   * Module dependencies
-  ###
-  LDFW = require "ldfw"
-  GameStage = require "../stages/game-stage"
-
-  ###
-   * GameScreen definition
-  ###
+define [
+  "ldfw",
+  "stages/game-stage",
+  "game-state"
+], (LDFW, GameStage, GameState) ->
   class GameScreen extends LDFW.Screen
     constructor: ->
       super
 
-      # Initialize a new Stage for this screen
-      @gameStage = new GameStage @game
+      @gameState = new GameState @game
+      @gameStage = new GameStage @game, @gameState
 
     ###
      * Update positions etc.
      * @param  {Number} delta Time passed since the last tick
     ###
     update: (delta) ->
+      @gameState.update delta
       @gameStage.update delta
       return
 
@@ -28,13 +24,8 @@ define (require, exports, module) ->
      * @param  {Canvas2DContext} context
     ###
     draw: (context) ->
-      context.fillStyle = "#49A0E8"
+      context.fillStyle = "#51566a"
       context.fillRect 0, 0, context.canvas.width, context.canvas.height
 
       @gameStage.draw context
       return
-
-  ###
-   * Expose GameScreen
-  ###
-  module.exports = GameScreen

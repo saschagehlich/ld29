@@ -11,12 +11,13 @@ module.exports = (grunt) ->
 
     texturepacker:
       sprites:
-        src: ["assets/tiles/**/*.png"]
+        src: ["assets/sprites"]
         options:
           scale: 2
           scaleMode: "fast"
           disableRotation: true
-          trimMode: null
+          trimMode: "None"
+          maxSize: "4096"
           output:
             sheet:
               file: "build/assets/sprites.png"
@@ -25,13 +26,13 @@ module.exports = (grunt) ->
               file: "build/assets/sprites.json"
               format: "json"
       tiles:
-        src: ["assets/tiles/**/*.png"]
+        src: ["assets/tiles"]
         options:
           scale: 2
           scaleMode: "fast"
           disableRotation: true
           padding: 0
-          trimMode: null
+          trimMode: "None"
           algorithm: "Basic"
 
           basicSortBy: "Width"
