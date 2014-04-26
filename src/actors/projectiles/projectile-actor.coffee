@@ -11,6 +11,9 @@ define ["ldfw"], (LDFW) ->
       @projectileSpriteRotated = @spritesAtlas.createSprite(
         "weapons/#{spriteName}-projectile-rotated.png"
       )
+      @projectileExplosionSprite = @spritesAtlas.createSprite(
+        "weapons/projectile-explosion.png"
+      )
 
     draw: (context) ->
       projectileSprite = @projectileSprite
@@ -19,6 +22,9 @@ define ["ldfw"], (LDFW) ->
         projectileSprite = @projectileSpriteRotated
       if @projectile.direction.x isnt @projectile.direction.y
         mirroredX = true
+
+      if @projectile.exploding
+        projectileSprite = @projectileExplosionSprite
 
       {x, y} = @projectile.position
       {level} = @gameState

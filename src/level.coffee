@@ -7,7 +7,7 @@ define ["ldfw", "entities/platform", "weapons/machinegun"], (LDFW, Platform, Mac
     constructor: (@game, @gameState) ->
       @gravity = new LDFW.Vector2(0, -4000)
       @boundaries =
-        min: new LDFW.Vector2(100, 0)
+        min: new LDFW.Vector2(105, 0)
         max: new LDFW.Vector2(@game.getWidth() - 50, 0)
 
       @platforms = [
@@ -54,8 +54,20 @@ define ["ldfw", "entities/platform", "weapons/machinegun"], (LDFW, Platform, Mac
         @items.splice(@items.indexOf(item), 1)
 
     _updateProjectiles: (delta) ->
+      destroyedProjectiles = []
       for projectile in @projectiles
+        if (projectile.position.x < @boundaries.min.x or
+          projectile.position.x > @boundaries.max.x or
+          projectile.position.y < @floorHeight) and
+          not projectile.exploding
+            projectile.explode()
+
         projectile.update delta
+        if projectile.destroyed
+          destroyedProjectiles.push projectile
+
+      for projectile in destroyedProjectiles
+        @projectiles.splice(@projectiles.indexOf(projectile), 1)
 
     addProjectile: (projectile) ->
       @projectiles.push projectile

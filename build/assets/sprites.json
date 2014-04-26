@@ -74,7 +74,7 @@
 },
 "ui/sidebar/player.png":
 {
-	"frame": {"x":24,"y":2026,"w":10,"h":10},
+	"frame": {"x":36,"y":2026,"w":10,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":10,"h":10},
@@ -120,6 +120,14 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":30,"h":10},
 	"sourceSize": {"w":30,"h":10}
 },
+"weapons/projectile-explosion.png":
+{
+	"frame": {"x":24,"y":2026,"w":10,"h":10},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":10,"h":10},
+	"sourceSize": {"w":10,"h":10}
+},
 "world/floor.png":
 {
 	"frame": {"x":2,"y":1870,"w":1280,"h":64},
@@ -151,6 +159,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "2",
-	"smartupdate": "$TexturePacker:SmartUpdate:ac2b3ca4e3f3a6e9287d039c0e729a13:93caf00a485eeb4cf04988315a2f3511:1eabdf11f75e3a4fe3147baf7b5be24b$"
+	"smartupdate": "$TexturePacker:SmartUpdate:e568bf7cfa2864afea990b7efa774370:a3d8531a7f7d565514afd6c5d69d24d3:1eabdf11f75e3a4fe3147baf7b5be24b$"
 }
 }
