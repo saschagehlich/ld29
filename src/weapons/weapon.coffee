@@ -4,6 +4,7 @@ define ["ldfw", "actors/weapon-actor"], (LDFW, WeaponActor) ->
     player: null
     cooldown: 0.5
     lastUse: 0
+    sinceLastUse: 0
     projectileClass: null
     constructor: (@game, @gameState, x, y) ->
       @position = new LDFW.Vector2(x, y)
@@ -12,11 +13,12 @@ define ["ldfw", "actors/weapon-actor"], (LDFW, WeaponActor) ->
 
     update: (delta) ->
       @actor.update delta
+      @sinceLastUse += delta
 
     getRect: ->
       {level} = @gameState
       x = @position.x
-      y = @game.getHeight() + level.scrollPosition - @position.y
+      y = @position.y
       w = @actor.getWidth()
       h = @actor.getHeight()
 
@@ -25,7 +27,6 @@ define ["ldfw", "actors/weapon-actor"], (LDFW, WeaponActor) ->
     setPlayer: (@player) ->
 
     use: (delta) ->
-      @sinceLastUse += delta
       return if @sinceLastUse < @cooldown
 
       projectile = new @projectileClass(@game, @gameState,

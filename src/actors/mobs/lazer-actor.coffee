@@ -9,7 +9,7 @@ define [
       {@player, @level} = @gameState
       {@spritesAtlas} = @game
 
-      @animationSprite = @spritesAtlas.createAnimSprite "mobs/lazer.png", 2, 0.1
+      @animationSprite = @spritesAtlas.createAnimSprite "mobs/lazer.png", 2, 0.05
 
     update: (delta) ->
       super

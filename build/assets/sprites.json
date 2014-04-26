@@ -34,7 +34,7 @@
 },
 "player/body.png":
 {
-	"frame": {"x":34,"y":2032,"w":20,"h":10},
+	"frame": {"x":54,"y":2012,"w":20,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":20,"h":10},
@@ -42,7 +42,7 @@
 },
 "player/feet-idle.png":
 {
-	"frame": {"x":56,"y":2042,"w":20,"h":4},
+	"frame": {"x":68,"y":2042,"w":20,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":20,"h":4},
@@ -74,7 +74,7 @@
 },
 "ui/sidebar/arrow.png":
 {
-	"frame": {"x":54,"y":2012,"w":12,"h":10},
+	"frame": {"x":68,"y":2030,"w":12,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":12,"h":10},
@@ -82,7 +82,7 @@
 },
 "ui/sidebar/player.png":
 {
-	"frame": {"x":56,"y":2030,"w":10,"h":10},
+	"frame": {"x":82,"y":2024,"w":10,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":10,"h":10},
@@ -96,9 +96,25 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":22,"h":22},
 	"sourceSize": {"w":22,"h":22}
 },
+"weapons/bazooka-projectile.png":
+{
+	"frame": {"x":82,"y":2024,"w":10,"h":10},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":10,"h":10},
+	"sourceSize": {"w":10,"h":10}
+},
+"weapons/bazooka.png":
+{
+	"frame": {"x":34,"y":2032,"w":32,"h":12},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":12},
+	"sourceSize": {"w":32,"h":12}
+},
 "weapons/machinegun-projectile.png":
 {
-	"frame": {"x":68,"y":2030,"w":4,"h":4},
+	"frame": {"x":76,"y":2024,"w":4,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":4},
@@ -112,9 +128,25 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":30,"h":10},
 	"sourceSize": {"w":30,"h":10}
 },
+"weapons/pistol-projectile.png":
+{
+	"frame": {"x":26,"y":2032,"w":2,"h":2},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":2,"h":2},
+	"sourceSize": {"w":2,"h":2}
+},
+"weapons/pistol.png":
+{
+	"frame": {"x":90,"y":2036,"w":14,"h":8},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":14,"h":8},
+	"sourceSize": {"w":14,"h":8}
+},
 "weapons/projectile-explosion.png":
 {
-	"frame": {"x":68,"y":2012,"w":10,"h":10},
+	"frame": {"x":76,"y":2012,"w":10,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":10,"h":10},
@@ -151,6 +183,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "2",
-	"smartupdate": "$TexturePacker:SmartUpdate:fedbd38a3cea28306b0e8cd164423020:c1ad63a5d9ba18cd10bf75d3f496b6df:1eabdf11f75e3a4fe3147baf7b5be24b$"
+	"smartupdate": "$TexturePacker:SmartUpdate:2e9899488146a5c6973de987fe6e75b7:d2592f2c247c4cfa7e76155e0cbbae8d:1eabdf11f75e3a4fe3147baf7b5be24b$"
 }
 }

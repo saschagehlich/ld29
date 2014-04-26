@@ -26,6 +26,7 @@ define ["ldfw", "./mob", "lib/mouse"], (LDFW, Mob, Mouse) ->
       @_calculateDepth()
 
       # Item usage / weapon shooting
+      @activeItem?.update delta
       if @usingItem and @activeItem?
         @activeItem.use delta
 

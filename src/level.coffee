@@ -1,8 +1,8 @@
 define [
   "ldfw",
   "entities/platform",
-  "weapons/machinegun"
-], (LDFW, Platform, MachineGun) ->
+  "weapons/bazooka"
+], (LDFW, Platform, Bazooka) ->
   class Level
     floorHeight: 40
     scrollPosition: 0
@@ -22,7 +22,7 @@ define [
       @platforms = []
 
       @items = [
-        new MachineGun(@game, @gameState, 450, 175)
+        new Bazooka(@game, @gameState, 450, 175)
       ]
 
       @mobs = []

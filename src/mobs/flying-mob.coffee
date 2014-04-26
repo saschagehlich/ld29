@@ -8,7 +8,7 @@ define [
     constructor: ->
       super
 
-      @speed = new LDFW.Vector2(100, 100)
+      @speed = new LDFW.Vector2(50, 50)
       @target = @gameState.player
 
     update: (delta) ->
