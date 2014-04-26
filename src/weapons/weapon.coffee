@@ -4,6 +4,7 @@ define ["ldfw", "actors/weapon-actor"], (LDFW, WeaponActor) ->
     player: null
     cooldown: 0.5
     lastUse: 0
+    projectileClass: null
     constructor: (@game, @gameState, x, y) ->
       @position = new LDFW.Vector2(x, y)
       @actor = new WeaponActor @game, @gameState, this, @spriteName
@@ -27,6 +28,9 @@ define ["ldfw", "actors/weapon-actor"], (LDFW, WeaponActor) ->
       @sinceLastUse += delta
       return if @sinceLastUse < @cooldown
 
-      console.log "PEW"
+      projectile = new @projectileClass(@game, @gameState,
+        this, @player
+      )
+      @gameState.level.addProjectile projectile
 
       @sinceLastUse = 0

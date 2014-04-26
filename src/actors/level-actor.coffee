@@ -18,6 +18,7 @@ define [
 
       @_drawPlatforms context
       @_drawItems context
+      @_drawProjectiles context
 
     _drawPlatforms: (context) ->
       {platforms} = @level
@@ -40,6 +41,12 @@ define [
       {items} = @level
       for item in items
         {actor} = item
+        actor.draw context
+
+    _drawProjectiles: (context) ->
+      {projectiles} = @level
+      for projectile in projectiles
+        {actor} = projectile
         actor.draw context
 
     drawFloor: (context) ->

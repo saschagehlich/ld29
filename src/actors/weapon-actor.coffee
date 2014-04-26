@@ -14,7 +14,7 @@ define [
 
     draw: (context, x, y, mirroredX=false) ->
       weaponSprite = @weaponSprite
-      if @weapon.player?.lookDirection is -1
+      if @weapon.player?.lookDirection is 1
         weaponSprite = @weaponSpriteUp
 
       unless x? and y?

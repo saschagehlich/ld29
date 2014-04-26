@@ -73,9 +73,9 @@ define ["ldfw"], (LDFW) ->
         @usingItem = false
 
       if lookUp
-        @lookDirection = -1
-      else if lookDown
         @lookDirection = 1
+      else if lookDown
+        @lookDirection = -1
       else
         @lookDirection = 0
 

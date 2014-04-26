@@ -20,10 +20,13 @@ define ["ldfw", "entities/platform", "weapons/machinegun"], (LDFW, Platform, Mac
         new MachineGun(@game, @gameState, 450, 175)
       ]
 
+      @projectiles = []
+
     update: (delta) ->
       {player} = @gameState
 
       @_updateItems delta
+      @_updateProjectiles delta
 
       if player.position.y > @game.getHeight() / 2
         scrollPosition = player.position.y - @game.getHeight() / 2
@@ -49,3 +52,10 @@ define ["ldfw", "entities/platform", "weapons/machinegun"], (LDFW, Platform, Mac
 
       for item in removeItems
         @items.splice(@items.indexOf(item), 1)
+
+    _updateProjectiles: (delta) ->
+      for projectile in @projectiles
+        projectile.update delta
+
+    addProjectile: (projectile) ->
+      @projectiles.push projectile
