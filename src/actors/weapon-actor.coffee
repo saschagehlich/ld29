@@ -10,12 +10,9 @@ define [
       {@spritesAtlas} = @game
 
       @weaponSprite = @spritesAtlas.createSprite "weapons/#{spriteName}.png"
-      @weaponSpriteUp = @spritesAtlas.createSprite "weapons/#{spriteName}-rotated.png"
 
     draw: (context, x, y, mirroredX=false) ->
       weaponSprite = @weaponSprite
-      if @weapon.player?.lookDirection is 1
-        weaponSprite = @weaponSpriteUp
 
       unless x? and y?
         {x, y} = @weapon.position

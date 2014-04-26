@@ -5,9 +5,10 @@ define ["ldfw", "actors/projectiles/projectile-actor"], (LDFW, ProjectileActor) 
     destroyed: false
     exploding: false
     constructor: (@game, @gameState, @weapon, @mob) ->
-      @actor = new @actorClass(@game, @gameState, this, @spriteName)
       @position = @mob.position.clone()
-      @direction = new LDFW.Vector2(@mob.direction, @mob.lookDirection)
+      @direction = @mob.lookDirection.clone()
+
+      @actor = new @actorClass(@game, @gameState, this, @spriteName)
 
     update: (delta) ->
       unless @exploding

@@ -30,7 +30,7 @@ define [
       sprite = @idleSprite
 
       mirroredX = false
-      if @player.direction is -1
+      if @player.lookDirection.x < 0
         mirroredX = true
 
       x = @player.position.x

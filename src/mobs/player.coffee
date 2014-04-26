@@ -1,22 +1,25 @@
-define ["ldfw"], (LDFW) ->
+define ["ldfw", "lib/mouse"], (LDFW, Mouse) ->
   class Player
     jumpForce: 1200
     onGround: true
-    lookDirection: 0
     constructor: (@game, @gameState) ->
       {@level} = @gameState
       @depth = @level.initialDepth
       @keyboard = new LDFW.Keyboard
+      @mouse = new Mouse(@game.wrapper)
 
       @position = new LDFW.Vector2 @game.getWidth() / 2, @level.floorHeight
       @velocity = new LDFW.Vector2(0, 0)
       @speed = new LDFW.Vector2(5, 0)
       @hitBox = new LDFW.Rectangle(0, 0, 20, 30)
 
+      @lookDirection = new LDFW.Vector2(1, 0)
+      @moveDirection = 1
+
       @items = []
 
     update: (delta) ->
-      @_handleKeyboardInput()
+      @_handleUserInput()
       @_calculateDepth()
 
       minY = @_findMinimumYForPosition @position
@@ -59,35 +62,32 @@ define ["ldfw"], (LDFW) ->
 
       return minY
 
-    _handleKeyboardInput: ->
-      moveLeft = @keyboard.pressed @keyboard.Keys.LEFT
-      moveRight = @keyboard.pressed @keyboard.Keys.RIGHT
-      lookUp = @keyboard.pressed @keyboard.Keys.UP
-      lookDown = @keyboard.pressed @keyboard.Keys.DOWN
-      use = @keyboard.pressed @keyboard.Keys.SPACE
-      jump = @keyboard.pressed @keyboard.Keys.C
+    _handleUserInput: ->
+      moveLeft = @keyboard.pressed @keyboard.Keys.A
+      moveRight = @keyboard.pressed @keyboard.Keys.D
 
-      if use
+      shoot = @mouse.pressed
+
+      jump = @keyboard.pressed(@keyboard.Keys.SPACE) or
+        @keyboard.pressed(@keyboard.Keys.W)
+
+      if moveLeft
+        @velocity.x = -@speed.x
+      else if moveRight
+        @velocity.x = @speed.x
+      else
+        @velocity.x = 0
+
+      if shoot
         @usingItem = true
       else
         @usingItem = false
 
-      if lookUp
-        @lookDirection = 1
-      else if lookDown
-        @lookDirection = -1
-      else
-        @lookDirection = 0
+      screenPosition = @position.clone()
+      screenPosition.y = @game.getHeight() + @level.scrollPosition - @hitBox.height - @position.y
+      @lookDirection = @mouse.getDirectionFrom screenPosition
 
-      if moveLeft
-        @velocity.x = -@speed.x
-        @direction = -1
-      else if moveRight
-        @velocity.x = @speed.x
-        @direction = 1
-      else
-        @velocity.x = 0
-
+      # JUMP JUMP!
       if jump and @onGround
         @velocity.y = @jumpForce
 

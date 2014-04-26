@@ -56,13 +56,31 @@ define ["ldfw", "entities/platform", "weapons/machinegun"], (LDFW, Platform, Mac
     _updateProjectiles: (delta) ->
       destroyedProjectiles = []
       for projectile in @projectiles
-        if (projectile.position.x < @boundaries.min.x or
-          projectile.position.x > @boundaries.max.x or
-          projectile.position.y < @floorHeight) and
+        # Level boundary collision
+        collideLeft = projectile.position.x < @boundaries.min.x
+        collideRight = projectile.position.x > @boundaries.max.x
+        collideFloor = projectile.position.y < @floorHeight
+        if (collideLeft or collideRight or collideFloor) and
           not projectile.exploding
             projectile.explode()
 
+            # Projectiles are pretty fast, make sure they stick to the walls
+            projectile.position.x = @boundaries.min.x if collideLeft
+            projectile.position.x = @boundaries.max.x if collideRight
+            projectile.position.y = @floorHeight if collideFloor
+
+        # Platform collision
+        # for platform in @platforms
+        #   if not (projectile.position.x < platform.x or
+        #     projectile.position.x > platform.x + platform.width or
+        #     projectile.position.y < platform.y or
+        #     projectile.position.y > platform.y + platform.height) and
+        #     not projectile.exploding
+        #       projectile.explode()
+
         projectile.update delta
+
+        # Throw away destroyed projectiles
         if projectile.destroyed
           destroyedProjectiles.push projectile
 

@@ -5,6 +5,6 @@ define [
   class MachineGun extends Weapon
     spriteName: "machinegun"
     projectileClass: MachineGunProjectile
-    cooldown: 0.05
+    cooldown: 0.1
     constructor: ->
       super

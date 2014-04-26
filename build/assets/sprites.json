@@ -26,7 +26,7 @@
 },
 "player/body.png":
 {
-	"frame": {"x":26,"y":1984,"w":20,"h":10},
+	"frame": {"x":8,"y":2016,"w":20,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":20,"h":10},
@@ -34,7 +34,7 @@
 },
 "player/feet-idle.png":
 {
-	"frame": {"x":32,"y":2038,"w":20,"h":4},
+	"frame": {"x":24,"y":2008,"w":20,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":20,"h":4},
@@ -42,7 +42,7 @@
 },
 "player/hands-idle.png":
 {
-	"frame": {"x":10,"y":2040,"w":20,"h":4},
+	"frame": {"x":8,"y":2028,"w":20,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":20,"h":4},
@@ -50,7 +50,7 @@
 },
 "player/head.png":
 {
-	"frame": {"x":2,"y":2020,"w":20,"h":18},
+	"frame": {"x":2,"y":1996,"w":20,"h":18},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":20,"h":18},
@@ -66,7 +66,7 @@
 },
 "ui/sidebar/arrow.png":
 {
-	"frame": {"x":24,"y":2014,"w":12,"h":10},
+	"frame": {"x":24,"y":1996,"w":12,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":12,"h":10},
@@ -74,7 +74,7 @@
 },
 "ui/sidebar/player.png":
 {
-	"frame": {"x":36,"y":2026,"w":10,"h":10},
+	"frame": {"x":34,"y":2032,"w":10,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":10,"h":10},
@@ -88,33 +88,17 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":22,"h":22},
 	"sourceSize": {"w":22,"h":22}
 },
-"weapons/machinegun-projectile-rotated.png":
-{
-	"frame": {"x":2,"y":2040,"w":6,"h":6},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":6,"h":6},
-	"sourceSize": {"w":6,"h":6}
-},
 "weapons/machinegun-projectile.png":
 {
-	"frame": {"x":32,"y":2044,"w":6,"h":2},
+	"frame": {"x":30,"y":2026,"w":4,"h":4},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":6,"h":2},
-	"sourceSize": {"w":6,"h":2}
-},
-"weapons/machinegun-rotated.png":
-{
-	"frame": {"x":2,"y":1996,"w":20,"h":22},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":20,"h":22},
-	"sourceSize": {"w":20,"h":22}
+	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":4},
+	"sourceSize": {"w":4,"h":4}
 },
 "weapons/machinegun.png":
 {
-	"frame": {"x":26,"y":1972,"w":30,"h":10},
+	"frame": {"x":2,"y":2034,"w":30,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":30,"h":10},
@@ -122,7 +106,7 @@
 },
 "weapons/projectile-explosion.png":
 {
-	"frame": {"x":24,"y":2026,"w":10,"h":10},
+	"frame": {"x":30,"y":2014,"w":10,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":10,"h":10},
@@ -138,7 +122,7 @@
 },
 "world/platform-edge.png":
 {
-	"frame": {"x":24,"y":1996,"w":4,"h":16},
+	"frame": {"x":2,"y":2016,"w":4,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":16},
@@ -159,6 +143,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "2",
-	"smartupdate": "$TexturePacker:SmartUpdate:e568bf7cfa2864afea990b7efa774370:a3d8531a7f7d565514afd6c5d69d24d3:1eabdf11f75e3a4fe3147baf7b5be24b$"
+	"smartupdate": "$TexturePacker:SmartUpdate:6af4dc05a5276fa6862706e901379e8a:37ae043beee95cbecfb33ef7b25ace65:1eabdf11f75e3a4fe3147baf7b5be24b$"
 }
 }
