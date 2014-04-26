@@ -38,4 +38,14 @@ define ["ldfw", "entities/platform", "weapons/machinegun"], (LDFW, Platform, Mac
         .start()
 
     _updateItems: (delta) ->
-      item.update(delta) for item in @items
+      {player} = @gameState
+
+      removeItems = []
+      for item in @items
+        if player.intersectsWith(item.getRect())
+          player.pickItem(item)
+          removeItems.push item
+        item.update(delta)
+
+      for item in removeItems
+        @items.splice(@items.indexOf(item), 1)

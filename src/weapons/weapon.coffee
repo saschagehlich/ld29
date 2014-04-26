@@ -9,3 +9,12 @@ define ["ldfw", "actors/weapon-actor"], (LDFW, WeaponActor) ->
 
     update: (delta) ->
       @actor.update delta
+
+    getRect: ->
+      {level} = @gameState
+      x = @position.x
+      y = @game.getHeight() + level.scrollPosition - @position.y
+      w = @actor.getWidth()
+      h = @actor.getHeight()
+
+      return new LDFW.Rectangle(x, y, w, h)

@@ -22,3 +22,6 @@ define [
     update: (delta) ->
       @hoverOffset = Math.sin(@sumDelta * 2) * 3
       @sumDelta += delta
+
+    getWidth: -> @weaponSprite.getWidth()
+    getHeight: -> @weaponSprite.getHeight()

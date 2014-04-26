@@ -24,13 +24,37 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":140,"h":140},
 	"sourceSize": {"w":140,"h":140}
 },
-"player/idle.png":
+"player/body.png":
 {
-	"frame": {"x":2,"y":1972,"w":20,"h":30},
+	"frame": {"x":26,"y":1984,"w":20,"h":10},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":20,"h":30},
-	"sourceSize": {"w":20,"h":30}
+	"spriteSourceSize": {"x":0,"y":0,"w":20,"h":10},
+	"sourceSize": {"w":20,"h":10}
+},
+"player/feet-idle.png":
+{
+	"frame": {"x":30,"y":2008,"w":20,"h":4},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":20,"h":4},
+	"sourceSize": {"w":20,"h":4}
+},
+"player/hands-idle.png":
+{
+	"frame": {"x":2,"y":2040,"w":20,"h":4},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":20,"h":4},
+	"sourceSize": {"w":20,"h":4}
+},
+"player/head.png":
+{
+	"frame": {"x":2,"y":2020,"w":20,"h":18},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":20,"h":18},
+	"sourceSize": {"w":20,"h":18}
 },
 "ui/headline.png":
 {
@@ -42,7 +66,7 @@
 },
 "ui/sidebar/arrow.png":
 {
-	"frame": {"x":26,"y":1996,"w":12,"h":10},
+	"frame": {"x":24,"y":2014,"w":12,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":12,"h":10},
@@ -50,7 +74,7 @@
 },
 "ui/sidebar/player.png":
 {
-	"frame": {"x":26,"y":2008,"w":10,"h":10},
+	"frame": {"x":30,"y":1996,"w":10,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":10,"h":10},
@@ -58,7 +82,7 @@
 },
 "ui/sidebar/sun.png":
 {
-	"frame": {"x":2,"y":2004,"w":22,"h":22},
+	"frame": {"x":2,"y":1972,"w":22,"h":22},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":22,"h":22},
@@ -66,7 +90,7 @@
 },
 "weapons/machinegun-rotated.png":
 {
-	"frame": {"x":24,"y":1972,"w":20,"h":22},
+	"frame": {"x":2,"y":1996,"w":20,"h":22},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":20,"h":22},
@@ -74,7 +98,7 @@
 },
 "weapons/machinegun.png":
 {
-	"frame": {"x":8,"y":2028,"w":30,"h":10},
+	"frame": {"x":26,"y":1972,"w":30,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":30,"h":10},
@@ -90,7 +114,7 @@
 },
 "world/platform-edge.png":
 {
-	"frame": {"x":2,"y":2028,"w":4,"h":16},
+	"frame": {"x":24,"y":1996,"w":4,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":16},
@@ -111,6 +135,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "2",
-	"smartupdate": "$TexturePacker:SmartUpdate:12b6a47e5babfc01d4f675d52349b6f8:c73c794a5bcbad1777f6bda929e425c1:1eabdf11f75e3a4fe3147baf7b5be24b$"
+	"smartupdate": "$TexturePacker:SmartUpdate:57f1d8827e0c7edc3f506b118fa11751:713501807ed2b897ebed2c1e741f081b:1eabdf11f75e3a4fe3147baf7b5be24b$"
 }
 }

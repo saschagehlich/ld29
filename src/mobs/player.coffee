@@ -2,6 +2,7 @@ define ["ldfw"], (LDFW) ->
   class Player
     jumpForce: 1200
     onGround: true
+    lookDirection: 0
     constructor: (@game, @gameState) ->
       {@level} = @gameState
       @depth = @level.initialDepth
@@ -10,7 +11,9 @@ define ["ldfw"], (LDFW) ->
       @position = new LDFW.Vector2 @game.getWidth() / 2, @level.floorHeight
       @velocity = new LDFW.Vector2(0, 0)
       @speed = new LDFW.Vector2(5, 0)
-      @hitBox = new LDFW.Vector2(20, 30)
+      @hitBox = new LDFW.Rectangle(0, 0, 20, 30)
+
+      @items = []
 
     update: (delta) ->
       @_handleKeyboardInput()
@@ -45,7 +48,7 @@ define ["ldfw"], (LDFW) ->
     _findMinimumYForPosition: (position) ->
       minY = @level.floorHeight
       for platform in @level.platforms
-        unless @position.x + @hitBox.x < platform.x or
+        unless @position.x + @hitBox.width < platform.x or
           @position.x > platform.x + platform.width or
           @position.y < platform.y
             minY = Math.max(minY, platform.y)
@@ -55,7 +58,16 @@ define ["ldfw"], (LDFW) ->
     _handleKeyboardInput: ->
       moveLeft = @keyboard.pressed @keyboard.Keys.LEFT
       moveRight = @keyboard.pressed @keyboard.Keys.RIGHT
-      jump = @keyboard.pressed @keyboard.Keys.UP
+      lookUp = @keyboard.pressed @keyboard.Keys.UP
+      lookDown = @keyboard.pressed @keyboard.Keys.DOWN
+      jump = @keyboard.pressed @keyboard.Keys.C
+
+      if lookUp
+        @lookDirection = -1
+      else if lookDown
+        @lookDirection = 1
+      else
+        @lookDirection = 0
 
       if moveLeft
         @velocity.x = -@speed.x
@@ -68,3 +80,32 @@ define ["ldfw"], (LDFW) ->
 
       if jump and @onGround
         @velocity.y = @jumpForce
+
+    pickItem: (item) ->
+      hasItem = false
+      for otherItem in @items
+        if otherItem instanceof item.constructor
+          hasItem = true
+
+      console.log "got this already" if hasItem
+
+      @items.push item
+
+    getRect: ->
+      {level} = @gameState
+      x = @position.x
+      y = @game.getHeight() + level.scrollPosition - @hitBox.height - @position.y
+      w = @hitBox.width
+      h = @hitBox.height
+      return new LDFW.Rectangle(x, y, w, h)
+
+    intersectsWith: (rect) ->
+      playerRect = @getRect()
+
+      if playerRect.position.x + playerRect.width < rect.position.x or
+        playerRect.x > rect.x + rect.width or
+        playerRect.position.y + playerRect.height < rect.position.y or
+        playerRect.position.y > rect.position.y + rect.height
+          return false
+
+      return true
