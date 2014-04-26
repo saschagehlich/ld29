@@ -1,4 +1,4 @@
-define ["ldfw", "entities/platform"], (LDFW, Platform) ->
+define ["ldfw", "entities/platform", "weapons/machinegun"], (LDFW, Platform, MachineGun) ->
   class Level
     floorHeight: 40
     scrollPosition: 0
@@ -16,8 +16,14 @@ define ["ldfw", "entities/platform"], (LDFW, Platform) ->
         new Platform(420, 320, 100),
       ]
 
+      @items = [
+        new MachineGun(@game, @gameState, 450, 175)
+      ]
+
     update: (delta) ->
       {player} = @gameState
+
+      @_updateItems delta
 
       if player.position.y > @game.getHeight() / 2
         scrollPosition = player.position.y - @game.getHeight() / 2
@@ -30,3 +36,6 @@ define ["ldfw", "entities/platform"], (LDFW, Platform) ->
         .to({ scrollPosition }, 200)
         .easing(TWEEN.Easing.Quartic.Out)
         .start()
+
+    _updateItems: (delta) ->
+      item.update(delta) for item in @items

@@ -42,7 +42,7 @@
 },
 "ui/sidebar/arrow.png":
 {
-	"frame": {"x":8,"y":2028,"w":12,"h":10},
+	"frame": {"x":26,"y":1996,"w":12,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":12,"h":10},
@@ -50,7 +50,7 @@
 },
 "ui/sidebar/player.png":
 {
-	"frame": {"x":22,"y":2028,"w":10,"h":10},
+	"frame": {"x":26,"y":2008,"w":10,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":10,"h":10},
@@ -63,6 +63,22 @@
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":22,"h":22},
 	"sourceSize": {"w":22,"h":22}
+},
+"weapons/machinegun-rotated.png":
+{
+	"frame": {"x":24,"y":1972,"w":20,"h":22},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":20,"h":22},
+	"sourceSize": {"w":20,"h":22}
+},
+"weapons/machinegun.png":
+{
+	"frame": {"x":8,"y":2028,"w":30,"h":10},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":30,"h":10},
+	"sourceSize": {"w":30,"h":10}
 },
 "world/floor.png":
 {
@@ -95,6 +111,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "2",
-	"smartupdate": "$TexturePacker:SmartUpdate:dcd4eb5e8d821851bd71dde37481d8f4:739d57122fd5e1e259a317f018dfe29b:1eabdf11f75e3a4fe3147baf7b5be24b$"
+	"smartupdate": "$TexturePacker:SmartUpdate:12b6a47e5babfc01d4f675d52349b6f8:c73c794a5bcbad1777f6bda929e425c1:1eabdf11f75e3a4fe3147baf7b5be24b$"
 }
 }

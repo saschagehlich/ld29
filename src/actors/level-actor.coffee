@@ -17,6 +17,7 @@ define [
       super
 
       @_drawPlatforms context
+      @_drawItems context
 
     _drawPlatforms: (context) ->
       {platforms} = @level
@@ -34,6 +35,12 @@ define [
         context.restore()
 
         @platformEdgeSprite.draw context, x + width - edgeWidth, y, true
+
+    _drawItems: (context) ->
+      {items} = @level
+      for item in items
+        {actor} = item
+        actor.draw context, item.position.x, item.position.y
 
     drawFloor: (context) ->
       yPosition = @level.scrollPosition + @game.getHeight() - @floorSprite.getHeight()
