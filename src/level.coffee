@@ -35,8 +35,8 @@ define [
       {player} = @gameState
 
       @_updateItems delta
-      @_updateMobs delta
       @_updateProjectiles delta
+      @_updateMobs delta
 
       if player.position.y > @game.getHeight() / 2
         scrollPosition = player.position.y - @game.getHeight() / 2
@@ -51,8 +51,15 @@ define [
         .start()
 
     _updateMobs: (delta) ->
+      destroyedMobs = []
       for mob in @mobs
         mob.update delta
+
+        if mob.destroyed
+          destroyedMobs.push mob
+
+      for mob in destroyedMobs
+        @mobs.splice @mobs.indexOf(mob), 1
 
     _updateItems: (delta) ->
       {player} = @gameState
@@ -86,12 +93,12 @@ define [
         # Mob collision
         for mob in @mobs
           continue if mob.constructor.name is "Player"
+          continue if mob.destroyed or mob.exploding
           rect = projectile.getRect()
           if mob.intersectsWith(rect) and
             not projectile.exploding
               mob.hurt projectile.damage
               projectile.explode()
-              console.log "OUCH"
 
         # Platform collision
         # for platform in @platforms

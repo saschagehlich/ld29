@@ -16,9 +16,14 @@ define [
       @animationSprite.update delta
 
     draw: (context) ->
-      super
-
       x = @mob.position.x
       y = @game.getHeight() + @level.scrollPosition - @animationSprite.getHeight() - @mob.position.y
 
+      context.save()
+      context.globalAlpha = @mobOpacity
       @animationSprite.draw context, x, y
+      context.restore()
+
+      super
+
+
