@@ -1,16 +1,23 @@
 define [
   "ldfw"
-], (LDFW, LevelActor) ->
+], (LDFW) ->
   class LevelActor extends LDFW.Actor
     constructor: (@game, @gameState) ->
       super
 
+      {@level} = @gameState
       {@spritesAtlas} = @game
 
       @wallSprite = @spritesAtlas.createSprite "world/wall.png"
+      @floorSprite = @spritesAtlas.createSprite "world/floor.png"
 
-    draw: (context) ->
-      yPosition = @gameState.getScrollPosition() % @wallSprite.getHeight()
+    drawFloor: (context) ->
+      yPosition = @level.scrollPosition + @game.getHeight() - @floorSprite.getHeight()
+      if yPosition < @game.getHeight()
+        @floorSprite.draw context, 0, yPosition
+
+    drawWalls: (context) ->
+      yPosition = @level.scrollPosition % @wallSprite.getHeight()
 
       if yPosition < @game.getHeight()
         @wallSprite.draw context, 0, yPosition

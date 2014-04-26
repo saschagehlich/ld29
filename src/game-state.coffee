@@ -1,11 +1,9 @@
-define [], ->
+define ["level", "mobs/player"], (Level, Player) ->
   class GameState
-    scrollPosition: 0
-
     constructor: (@game) ->
-      return
+      @level = new Level @game, this
+      @player = new Player @game, this
 
     update: (delta) ->
-      @scrollPosition += delta * 30
-
-    getScrollPosition: -> @scrollPosition
+      @level.update delta
+      @player.update delta
