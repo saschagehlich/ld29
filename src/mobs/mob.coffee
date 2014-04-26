@@ -40,7 +40,6 @@ define ["ldfw", "lib/mouse"], (LDFW, Mouse) ->
           @velocity.y = 0
 
       if @exploding
-        debug @explodingTimeLeft
         @explodingTimeLeft -= delta
         if @explodingTimeLeft < 0
           @destroyed = true

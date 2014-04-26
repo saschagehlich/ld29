@@ -63,7 +63,6 @@ define [
     _drawExplosion: (context) ->
       context.save()
       for circle in @explosionCircles
-        debug circle.size
         context.fillStyle = circle.color
         context.beginPath()
 
