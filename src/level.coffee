@@ -6,19 +6,20 @@ define [
   class Level
     floorHeight: 40
     scrollPosition: 0
+    scrollSpeed: 1
     initialDepth: -1500
     depthPerPixel: 2 / 30
+    platformDistance: 100
+    platformIndex: 0
+    minPlatformWidth: 100
+    maxPlatformWidth: 250
     constructor: (@game, @gameState) ->
       @gravity = new LDFW.Vector2(0, -4000)
       @boundaries =
         min: new LDFW.Vector2(105, 0)
         max: new LDFW.Vector2(@game.getWidth() - 50, 0)
 
-      @platforms = [
-        new Platform(420, 160, 100),
-        new Platform(250, 250, 100),
-        new Platform(420, 320, 100),
-      ]
+      @platforms = []
 
       @items = [
         new MachineGun(@game, @gameState, 450, 175)
@@ -38,17 +39,28 @@ define [
       @_updateProjectiles delta
       @_updateMobs delta
 
-      if player.position.y > @game.getHeight() / 2
-        scrollPosition = player.position.y - @game.getHeight() / 2
-      else
-        scrollPosition = 0
+      @scrollPosition += @scrollSpeed
 
-      self = this
-      TWEEN.remove @scrollTween
-      @scrollTween = new TWEEN.Tween(this)
-        .to({ scrollPosition }, 200)
-        .easing(TWEEN.Easing.Quartic.Out)
-        .start()
+      @_buildPlatforms()
+
+    _buildPlatforms: ->
+      neededPlatformCount = Math.ceil((@scrollPosition + @game.getHeight() * 2) / @platformDistance)
+
+      if @platformIndex < neededPlatformCount
+        remainingPlatformsCount = neededPlatformCount - @platformIndex
+
+        for i in [0...remainingPlatformsCount]
+          @platformIndex++
+
+          platformY = @floorHeight + @platformIndex * @platformDistance
+
+          availableSpace = @game.getWidth() - @boundaries.min.x - (@game.getWidth() - @boundaries.max.x)
+          platformWidth = @minPlatformWidth + Math.round(Math.random() * (@maxPlatformWidth - @minPlatformWidth))
+          availableSpace -= platformWidth
+          platformX = @boundaries.min.x + Math.round(Math.random() * availableSpace)
+
+          platform = new Platform(platformX, platformY, platformWidth)
+          @platforms.push platform
 
     _updateMobs: (delta) ->
       destroyedMobs = []

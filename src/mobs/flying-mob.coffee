@@ -4,6 +4,7 @@ define [
 ], (LDFW, Mob) ->
   class FlyingMob extends Mob
     ignoreGravity: true
+    intersectWithPlatforms: false
     constructor: ->
       super
 

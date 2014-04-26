@@ -6,6 +6,7 @@ define ["ldfw", "lib/mouse"], (LDFW, Mouse) ->
     maxHealth: 100
     destroyed: false
     exploding: false
+    intersectWithPlatforms: true
     constructor: (@game, @gameState) ->
       {@level} = @gameState
 
@@ -17,7 +18,10 @@ define ["ldfw", "lib/mouse"], (LDFW, Mouse) ->
       @hitBox = new LDFW.Rectangle(0, 0, 0, 0)
 
     update: (delta) ->
-      minY = @_findMinimumYForPosition @position
+      if @intersectWithPlatforms
+        minY = @_findMinimumYForPosition @position
+      else
+        minY = @level.floorHeight
 
       unless @exploding
         gravityStep = @level.gravity.clone()
