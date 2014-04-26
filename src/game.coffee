@@ -1,8 +1,7 @@
 define [
   "ldfw",
-  "screens/game-screen",
-  "player"
-], (LDFW, GameScreen, Player) ->
+  "screens/game-screen"
+], (LDFW, GameScreen) ->
   class Game extends LDFW.Game
     constructor: ->
       super

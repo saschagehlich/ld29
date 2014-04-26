@@ -24,9 +24,17 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":140,"h":140},
 	"sourceSize": {"w":140,"h":140}
 },
+"mobs/lazer.png":
+{
+	"frame": {"x":2,"y":1936,"w":76,"h":38},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":38},
+	"sourceSize": {"w":76,"h":38}
+},
 "player/body.png":
 {
-	"frame": {"x":8,"y":2016,"w":20,"h":10},
+	"frame": {"x":34,"y":2032,"w":20,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":20,"h":10},
@@ -34,7 +42,7 @@
 },
 "player/feet-idle.png":
 {
-	"frame": {"x":24,"y":2008,"w":20,"h":4},
+	"frame": {"x":56,"y":2042,"w":20,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":20,"h":4},
@@ -42,7 +50,7 @@
 },
 "player/hands-idle.png":
 {
-	"frame": {"x":8,"y":2028,"w":20,"h":4},
+	"frame": {"x":54,"y":2024,"w":20,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":20,"h":4},
@@ -50,7 +58,7 @@
 },
 "player/head.png":
 {
-	"frame": {"x":2,"y":1996,"w":20,"h":18},
+	"frame": {"x":26,"y":2012,"w":20,"h":18},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":20,"h":18},
@@ -58,7 +66,7 @@
 },
 "ui/headline.png":
 {
-	"frame": {"x":2,"y":1936,"w":640,"h":34},
+	"frame": {"x":2,"y":1976,"w":640,"h":34},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":640,"h":34},
@@ -66,7 +74,7 @@
 },
 "ui/sidebar/arrow.png":
 {
-	"frame": {"x":24,"y":1996,"w":12,"h":10},
+	"frame": {"x":54,"y":2012,"w":12,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":12,"h":10},
@@ -74,7 +82,7 @@
 },
 "ui/sidebar/player.png":
 {
-	"frame": {"x":34,"y":2032,"w":10,"h":10},
+	"frame": {"x":56,"y":2030,"w":10,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":10,"h":10},
@@ -82,7 +90,7 @@
 },
 "ui/sidebar/sun.png":
 {
-	"frame": {"x":2,"y":1972,"w":22,"h":22},
+	"frame": {"x":2,"y":2012,"w":22,"h":22},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":22,"h":22},
@@ -90,7 +98,7 @@
 },
 "weapons/machinegun-projectile.png":
 {
-	"frame": {"x":30,"y":2026,"w":4,"h":4},
+	"frame": {"x":68,"y":2030,"w":4,"h":4},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":4},
@@ -98,7 +106,7 @@
 },
 "weapons/machinegun.png":
 {
-	"frame": {"x":2,"y":2034,"w":30,"h":10},
+	"frame": {"x":2,"y":2036,"w":30,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":30,"h":10},
@@ -106,7 +114,7 @@
 },
 "weapons/projectile-explosion.png":
 {
-	"frame": {"x":30,"y":2014,"w":10,"h":10},
+	"frame": {"x":68,"y":2012,"w":10,"h":10},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":10,"h":10},
@@ -122,7 +130,7 @@
 },
 "world/platform-edge.png":
 {
-	"frame": {"x":2,"y":2016,"w":4,"h":16},
+	"frame": {"x":48,"y":2012,"w":4,"h":16},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":4,"h":16},
@@ -143,6 +151,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "2",
-	"smartupdate": "$TexturePacker:SmartUpdate:6af4dc05a5276fa6862706e901379e8a:37ae043beee95cbecfb33ef7b25ace65:1eabdf11f75e3a4fe3147baf7b5be24b$"
+	"smartupdate": "$TexturePacker:SmartUpdate:fedbd38a3cea28306b0e8cd164423020:c1ad63a5d9ba18cd10bf75d3f496b6df:1eabdf11f75e3a4fe3147baf7b5be24b$"
 }
 }

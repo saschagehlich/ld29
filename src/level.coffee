@@ -1,4 +1,8 @@
-define ["ldfw", "entities/platform", "weapons/machinegun"], (LDFW, Platform, MachineGun) ->
+define [
+  "ldfw",
+  "entities/platform",
+  "weapons/machinegun"
+], (LDFW, Platform, MachineGun) ->
   class Level
     floorHeight: 40
     scrollPosition: 0
@@ -20,12 +24,18 @@ define ["ldfw", "entities/platform", "weapons/machinegun"], (LDFW, Platform, Mac
         new MachineGun(@game, @gameState, 450, 175)
       ]
 
+      @mobs = []
+
       @projectiles = []
+
+    addMob: (mob) ->
+      @mobs.push mob
 
     update: (delta) ->
       {player} = @gameState
 
       @_updateItems delta
+      @_updateMobs delta
       @_updateProjectiles delta
 
       if player.position.y > @game.getHeight() / 2
@@ -39,6 +49,10 @@ define ["ldfw", "entities/platform", "weapons/machinegun"], (LDFW, Platform, Mac
         .to({ scrollPosition }, 200)
         .easing(TWEEN.Easing.Quartic.Out)
         .start()
+
+    _updateMobs: (delta) ->
+      for mob in @mobs
+        mob.update delta
 
     _updateItems: (delta) ->
       {player} = @gameState
@@ -68,6 +82,16 @@ define ["ldfw", "entities/platform", "weapons/machinegun"], (LDFW, Platform, Mac
             projectile.position.x = @boundaries.min.x if collideLeft
             projectile.position.x = @boundaries.max.x if collideRight
             projectile.position.y = @floorHeight if collideFloor
+
+        # Mob collision
+        for mob in @mobs
+          continue if mob.constructor.name is "Player"
+          rect = projectile.getRect()
+          if mob.intersectsWith(rect) and
+            not projectile.exploding
+              mob.hurt projectile.damage
+              projectile.explode()
+              console.log "OUCH"
 
         # Platform collision
         # for platform in @platforms

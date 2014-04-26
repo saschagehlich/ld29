@@ -23,3 +23,7 @@ define ["ldfw", "actors/projectiles/projectile-actor"], (LDFW, ProjectileActor) 
     explode: ->
       @exploding = true
       @explodingDuration = 0.1
+
+    getRect: ->
+      {x, y} = @position
+      return new LDFW.Rectangle(x, y, 0, 0)

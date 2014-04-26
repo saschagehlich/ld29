@@ -5,15 +5,18 @@ define ["ldfw", "jquery"], (LDFW, $) ->
       @position = new LDFW.Vector2()
 
       $(@wrapper).mousemove (e) =>
+        e.preventDefault()
         offset = @wrapper.offset()
         x = e.pageX - offset.left
         y = e.pageY - offset.top
         @position.set x, y
 
-      $(@wrapper).mousedown =>
+      $(@wrapper).mousedown (e) =>
+        e.preventDefault()
         @pressed = true
 
-      $(@wrapper).mouseup =>
+      $(@wrapper).mouseup (e) =>
+        e.preventDefault()
         @pressed = false
 
     getDirectionFrom: (position) ->
